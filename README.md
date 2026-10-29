@@ -15,8 +15,8 @@ gets in, and ends the call for everyone. The browser only joins.**
 
 ---
 
-Clone this repo, add a free API key from [app.videosdk.live](https://app.videosdk.live), and run it in
-about 2 minutes.
+A starting point for any Node.js video chat or video calling app. Clone this repo, add a free API
+key from [app.videosdk.live](https://app.videosdk.live), and run it in about 2 minutes.
 
 - **Your server owns the room.** `POST /api/rooms` creates it with the VideoSDK Server SDK. No
   hand-written REST calls, no hand-rolled JWT code.

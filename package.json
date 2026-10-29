@@ -1,7 +1,7 @@
 {
   "name": "videosdk-nodejs-video-calling",
   "version": "1.0.0",
-  "description": "WebRTC group video call app with Node.js, where your Express server owns the room. Built on VideoSDK.",
+  "description": "WebRTC video call and video chat app with Node.js and Express. Your server creates the room, mints scoped tokens and ends the call for everyone. Built on VideoSDK.",
   "type": "module",
   "private": true,
   "license": "MIT",
