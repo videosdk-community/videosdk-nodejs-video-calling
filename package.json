@@ -1,0 +1,20 @@
+{
+  "name": "videosdk-nodejs-video-calling",
+  "version": "1.0.0",
+  "description": "WebRTC group video call app with Node.js, where your Express server owns the room. Built on VideoSDK.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file=.env server.js",
+    "start": "node --env-file=.env server.js"
+  },
+  "dependencies": {
+    "@videosdk.live/js-sdk": "1.2.1",
+    "@videosdk.live/server-sdk": "0.1.1",
+    "express": "5.3.0"
+  }
+}
