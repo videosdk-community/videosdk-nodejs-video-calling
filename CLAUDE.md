@@ -55,7 +55,8 @@ Reasoning for each is in `docs/DECISIONS.md`.
 ## Honesty rules for anything published
 
 - Node never joins the call. It manages rooms and signs tokens; only browsers are participants.
-- Do not mention the AI agents product. Never name competitors. Never use the word "clone".
+- Do not mention the AI agents product. Never name competitors. "Clone this repo" is fine in the
+  CTA (user decision, 2026-10-29); never call the app a "clone" of another product.
 - No em dash characters anywhere.
 
 ## Secrets
