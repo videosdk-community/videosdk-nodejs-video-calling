@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="dark" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Node.js Video Call - VideoSDK</title>
+    <link rel="stylesheet" href="/tokens.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <img src="/videosdk-wordmark-white.svg" alt="VideoSDK" height="20" />
+      <span id="room-label" class="room-label" hidden></span>
+      <button id="copy-link" class="btn btn-secondary btn-sm" hidden>Copy invite link</button>
+    </header>
+
+    <main>
+      <form id="join-form" class="card">
+        <h1 id="join-title">Start a video call</h1>
+        <p id="join-hint" class="muted">Your Node server creates the room and hands you a token for it.</p>
+        <label for="name">Your name</label>
+        <input id="name" name="name" required maxlength="40" autocomplete="name" placeholder="Ada" />
+        <button id="join-button" class="btn btn-primary" type="submit">Start call</button>
+        <p id="status" class="status" role="status"></p>
+      </form>
+
+      <section id="call" hidden>
+        <div id="grid" class="grid"></div>
+        <nav class="controls">
+          <button id="toggle-mic" class="btn btn-secondary" aria-pressed="true">Mute</button>
+          <button id="toggle-cam" class="btn btn-secondary" aria-pressed="true">Stop camera</button>
+          <button id="leave" class="btn btn-secondary">Leave</button>
+          <button id="end" class="btn btn-danger" hidden>End for everyone</button>
+        </nav>
+      </section>
+    </main>
+
+    <script src="/vendor/videosdk.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
