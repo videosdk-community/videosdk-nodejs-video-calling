@@ -4,7 +4,7 @@ How this app works and why. The single authority: where any other file disagrees
 this one wins. A commit that changes behaviour updates this file in the same commit.
 
 Facts marked **probed** were checked against the real VideoSDK service in two browsers on
-2026-10-29, not taken from docs or typings.
+2026-10-29.
 
 ## What the app is
 
@@ -24,9 +24,6 @@ Out of scope: webhooks, recording, room listing, chat, screen share, waiting lob
   step, no bundler, no tests.
 - `express` 5.3.0, `@videosdk.live/server-sdk` 0.1.1, `@videosdk.live/js-sdk` 1.2.1, all pinned
   exact.
-- The published Server SDK package is `@videosdk.live/server-sdk`. The official
-  `videosdk-server-sdk-examples-nodejs` repo names `@videosdk/server-sdk` (404 on npm) and a local
-  tgz; nothing here is copied from it.
 - The browser loads the JS SDK from the installed package: Express serves
   `node_modules/@videosdk.live/js-sdk/videosdk.js` at `/vendor/videosdk.js`. It is a UMD bundle and
   exposes a global `VideoSDK`. One `npm install`, and `package.json` pins both SDKs.
@@ -101,8 +98,7 @@ await videosdk.rooms.end(roomId);        // disables the room for good
 ```
 
 - **Probed:** `rooms.end` (`POST /v2/rooms/deactivate`) alone sets `disabled: true` but leaves
-  every live participant in the call, observed for 60 seconds. The Server SDK docs say it "ends its
-  live session"; on 2026-10-29 it did not.
+  every live participant in the call, observed for 60 seconds.
 - **Probed:** `sessions.end` (`POST /v2/sessions/end`) disconnects every participant within a
   second. Each browser receives `meeting-left` with `{ code: 1009, message: "Meeting Ended." }`
   (`VideoSDK.Constants.leaveReason.MEETING_END_API`). The room stays enabled.
@@ -132,9 +128,8 @@ await videosdk.rooms.end(roomId);        // disables the room for good
 
 ## Deploy
 
-No live demo and no deploy config, by decision on 2026-10-29: the repo is the deliverable and
-people run it locally in about two minutes. This overrides the live demo line in the campaign
-brief.
+No live demo and no deploy config: the repo is the deliverable and people run it locally in
+about two minutes.
 
 ## Verification
 
@@ -151,6 +146,3 @@ all passing:
 - host End: both browsers leave with code 1009 and the ended message
 - rejoining the ended room is refused with "This call has ended."
 - guest Leave removes only the guest; the host stays with one tile
-
-Screenshots and B-roll from that run are in the campaign's `assets/app/`. They show Chromium's
-fake camera (green test pattern), not real people.
