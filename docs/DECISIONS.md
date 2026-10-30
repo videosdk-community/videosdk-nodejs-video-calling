@@ -121,6 +121,9 @@ await videosdk.rooms.end(roomId);        // disables the room for good
    `meeting.participants` on `meeting-joined` (idempotent), removed on `participant-left`. Media is
    attached on `stream-enabled` / `stream-disabled`. The local participant's audio is never played.
    A tile with no video shows the name's initial.
+   The page is bound to the viewport: a tile is 16:9 and never taller than the space above the
+   controls, so the controls stay on screen with one participant or many. A grid too big to fit
+   scrolls inside itself.
 5. Controls: mic (`muteMic` / `unmuteMic`), camera (`disableWebcam` / `enableWebcam`), Leave
    (`meeting.leave()`, only you leave), and End for everyone (host only, calls our server).
 6. On `meeting-left`, code 1009 shows "The host ended this call for everyone." and drops the stored

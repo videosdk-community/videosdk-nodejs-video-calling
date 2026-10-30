@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   font-family: var(--font-sans);
@@ -29,6 +29,8 @@ h1, p, figure { margin: 0; }
 
 main {
   flex: 1;
+  min-height: 0;
+  overflow: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,16 +84,22 @@ input {
 .btn-danger { color: var(--neutral-0); background: var(--red-600); }
 .btn-danger:hover { background: var(--red-700); }
 
-#call { width: 100%; height: 100%; display: flex; flex-direction: column; gap: var(--space-8); }
+#call { width: 100%; align-self: stretch; display: flex; flex-direction: column; gap: var(--space-8); }
 .grid {
   flex: 1;
+  min-height: 0;
+  container-type: size;
+  overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  align-content: center;
+  align-content: safe center;
   gap: var(--space-8);
 }
 .tile {
   position: relative;
+  width: 100%;
+  max-width: calc(100cqh * 16 / 9); /* never taller than the space above the controls */
+  justify-self: center;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--surface-card);
